@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <input value="Haz click aquí" onclick="alert('¡Click!')" type="button">
+
+    <input type="button" onclick="countRabbits()" value="¡Cuenta los conejos!">
+
+    <input id="elem" type="button" value="Haz click en mí">
+
+    <button onclick="alert(this.innerHTML)">Haz click en mí</button>
+
+    <input id="elem2" type="button" value="Haz click en mí"/>
+
+    <input id="objeto-evento" type="button" value="Objeto del evento">
+
+    <input type="button" onclick="alert(event.type)" value="Event type">
+
+    <button id="handleEvent">Haz click en mí handleEvent</button>
+
+    <script src="js/eventos.js"></script>
+    <script>
+        function countRabbits() {
+          for(let i=1; i<=3; i++) {
+            alert("Conejo número " + i);
+          }
+        }
+
+        function handler() {
+            alert('¡Gracias!');
+        };
+
+        const elem = document.querySelector('#elem')
+        elem.onclick = function() {
+            alert('¡Gracias!');
+        };
+
+        const elem2 = document.querySelector('#elem2')
+        elem2.addEventListener("click", handler, {once:true}); // Gracias!
+
+        // Objeto del evento
+        const objetoEvento = document.querySelector('#objeto-evento')
+        objetoEvento.onclick = function(event) {
+            console.log(event.currentTarget); // = this
+            console.log(`${event.type} en el ${event.currentTarget}`)
+            console.log(`Coordenadas: ${event.clientX}:${event.clientY}`)
+        };
+
+        // Objetos handlers: handleEvent
+        const handleEvent = document.querySelector('#handleEvent')
+        let obj = {
+            handleEvent(event) {
+                console.log(event.type)
+                alert(event.type + " en " + event.currentTarget);
+            }
+         };
+         handleEvent.addEventListener('click', obj);
+      </script>
+</body>
+</html>
