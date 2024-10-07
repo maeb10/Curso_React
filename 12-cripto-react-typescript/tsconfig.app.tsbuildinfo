@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/store.ts","./src/vite-env.d.ts","./src/components/Alert.tsx","./src/components/CriptoSearchForm.tsx","./src/components/CryptoPriceDisplay.tsx","./src/components/Spinner.tsx","./src/data/index.ts","./src/schema/crypto-schema.ts","./src/services/CryptoService.ts","./src/types/index.ts"],"version":"5.6.2"}
